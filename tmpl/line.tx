@@ -1,0 +1,15 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+<form action="/post/stationcd" method="post">
+    <input type="text" name="stationcd">
+    <input type="submit" value="送信">
+ </form>
+
+:for $stations -> $station{
+ <:$station.station_name :><br/>
+ <:$station.station_cd :>
+:}
+
+:}

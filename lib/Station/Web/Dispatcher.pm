@@ -4,26 +4,35 @@ use warnings;
 use utf8;
 use Amon2::Web::Dispatcher::RouterBoom;
 
-any '/' => sub {
-    my ($c) = @_;
-    my $counter = $c->session->get('counter') || 0;
-    $counter++;
-    $c->session->set('counter' => $counter);
-    return $c->render('index.tx', {
-        counter => $counter,
-    });
-};
+use Module::Find;
 
-post '/reset_counter' => sub {
-    my $c = shift;
-    $c->session->remove('counter');
-    return $c->redirect('/');
-};
+useall 'Station::Web::C';
+base 'Station::Web::C';
 
-post '/account/logout' => sub {
-    my ($c) = @_;
-    $c->session->expire();
-    return $c->redirect('/');
-};
+get '/' => "Station#home";
+
+get '/line' => "Station#line";
+
+get '/station' => "Station#station";
+
+get '/stationcd' => "Station#stationcd";
+
+get '/stationg' => "Station#stationg";
+
+get '/near' => "Station#near";
+
+post '/result' => "Station#post";
+
+post '/post/line' => "Station#postline";
+
+post '/post/station' => "Station#poststation";
+
+post '/post/stationcd' => "Station#poststationcd";
+
+post '/post/stationg' => "Station#poststationg";
+
+post '/post/near' => "Station#postnear";
+
+
 
 1;

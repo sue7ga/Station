@@ -1,0 +1,10 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+:for $stations -> $station{
+ <:$station.station_name :><br/>
+ <:$station.station_cd :>
+:}
+
+:}

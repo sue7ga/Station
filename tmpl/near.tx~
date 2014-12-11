@@ -1,0 +1,10 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+:for $lines -> $line{
+ <:$line.line_name :><br/>
+ <:$line.line_cd :>
+:}
+
+:}

@@ -1,0 +1,14 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+ :for $stationinfos -> $stationinfo{
+                <:$stationinfo.station_cd:><br/>
+                <:$stationinfo.line_name:><br/>
+                 <:$stationinfo.pref_cd:><br/>
+                 <:$stationinfo.station_name:><br/>
+                 <:$stationinfo.line_cd:><br/> 
+:}
+
+
+:}

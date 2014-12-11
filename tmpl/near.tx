@@ -1,0 +1,12 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+:for $stationjoin -> $stationjoin{
+  <:$stationjoin.station_cd1 :><br/>
+  <:$stationjoin.station_name1 :><br/>
+  <:$stationjoin.station_cd2 :><br/>
+  <:$stationjoin.station_name2 :><br/>
+:}
+
+:}
